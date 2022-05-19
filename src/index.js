@@ -1,16 +1,18 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+import ReactDOM from "react-dom";
 import App from "./App";
 import { DarkModeContextProvider } from "./context/darkModeContext";
+import { AuthContextProvider } from "./context/AuthContext";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <DarkModeContextProvider>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </DarkModeContextProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
